@@ -8,7 +8,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var a = ""
+        var b = 0
+        var c = ""
+        var d : Double = 0.0
         button32.setOnClickListener {
             textView2.setText("0")
         }
@@ -96,6 +99,54 @@ class MainActivity : AppCompatActivity() {
                 textView2.setText("0")
             } else {
                 textView2.setText(textView2.text.toString().dropLast(1))
+            }
+        }
+        button49.setOnClickListener {
+            if (!textView2.text.toString().contains(".")) {
+                textView2.text = textView2.text.toString() + "."
+            }
+        }
+        button35.setOnClickListener {
+            c = "/"
+            a = textView2.text.toString()
+            textView2.setText("0")
+        }
+        button39.setOnClickListener {
+            c = "x"
+            a = textView2.text.toString()
+            textView2.setText("0")
+        }
+        button54.setOnClickListener {
+            c = "-"
+            a = textView2.text.toString()
+            textView2.setText("0")
+        }
+        button47.setOnClickListener {
+            c = "+"
+            a = textView2.text.toString()
+            textView2.setText("0")
+        }
+        button34.setOnClickListener {
+            c = "%"
+            a = textView2.text.toString()
+            textView2.setText("0")
+        }
+        button50.setOnClickListener {
+            if (c == "/") {
+                d = (a.toString().toDouble() / textView2.text.toString().toDouble())
+                textView2.setText(d.toString())
+            } else if (c == "x") {
+                d = (a.toString().toDouble() * textView2.text.toString().toDouble())
+                textView2.setText(d.toString())
+            } else if (c == "-") {
+                d = (a.toString().toDouble() - textView2.text.toString().toDouble())
+                textView2.setText(d.toString())
+            } else if (c == "+") {
+                d = (a.toString().toDouble() + textView2.text.toString().toDouble())
+                textView2.setText(d.toString())
+            }else if (c == "%") {
+                d = (a.toString().toDouble() % textView2.text.toString().toDouble())
+                textView2.setText(d.toString())
             }
         }
     }
